@@ -1,0 +1,31 @@
+.App {
+  text-align: center;
+  height: 100%;
+  margin: 10px auto;
+  padding: 5px;
+  max-width: 560px;
+  color: #444;
+}
+
+h1 {
+  color: #666;
+}
+
+h2 {
+  color: #333;
+}
+
+button {
+  border: 1px solid #aaa;
+  background-color: #eee;
+  font-size: 1.1em;
+  border-radius: 4px;
+}
+
+@media screen and (min-width: 460px) {
+  body,
+  input,
+  textarea {
+    font-size: 1.1em;
+  }
+}
