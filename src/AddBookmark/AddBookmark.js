@@ -1,11 +1,10 @@
 import React, { Component } from  'react';
+import config from '../config'
 import './AddBookmark.css';
 
 const Required = () => (
   <span className='AddBookmark__required'>*</span>
 )
-
-const URL = `https://thinkful-list-api.herokuapp.com/tomht/bookmarks`
 
 class AddBookmark extends Component {
   static defaultProps = {
@@ -27,7 +26,7 @@ class AddBookmark extends Component {
       rating: rating.value,
     }
     this.setState({ error: null })
-    fetch(URL, {
+    fetch(config.API_ENDPOINT, {
       method: 'POST',
       body: JSON.stringify(bookmark),
       headers: {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AddBookmark from './AddBookmark/AddBookmark';
 import BookmarkList from './BookmarkList/BookmarkList';
 import Nav from './Nav/Nav';
+import config from './config';
 import './App.css';
 
 const bookmarks = [
@@ -27,8 +28,6 @@ const bookmarks = [
   //   desc: 'brings together the world\'s largest community of developers.'
   // }
 ];
-
-const URL = `https://thinkful-list-api.herokuapp.com/tomht/bookmarks`
 
 class App extends Component {
   state = {
@@ -56,7 +55,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch(URL)
+    fetch(config.API_ENDPOINT)
       .then(res => {
         if (!res.ok) {
           throw new Error(res.status)
