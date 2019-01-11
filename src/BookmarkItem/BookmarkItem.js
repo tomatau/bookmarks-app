@@ -17,7 +17,7 @@ export default function BookmarkItem(props) {
         <Rating value={props.rating} />
       </div>
       <p className='BookmarkItem__description'>
-        {props.desc}
+        {props.description}
       </p>
       <div className='BookmarkItem__buttons'>
         <button

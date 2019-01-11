@@ -18,11 +18,11 @@ class AddBookmark extends Component {
   handleSubmit = e => {
     e.preventDefault()
     // get the form fields from the event
-    const { title, url, desc, rating } = e.target
+    const { title, url, description, rating } = e.target
     const bookmark = {
       title: title.value,
       url: url.value,
-      desc: desc.value,
+      description: description.value,
       rating: rating.value,
     }
     this.setState({ error: null })
@@ -30,7 +30,8 @@ class AddBookmark extends Component {
       method: 'POST',
       body: JSON.stringify(bookmark),
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'authorization': `bearer ${config.API_KEY}`
       }
     })
       .then(res => {
@@ -46,7 +47,7 @@ class AddBookmark extends Component {
       .then(data => {
         title.value = ''
         url.value = ''
-        desc.value = ''
+        description.value = ''
         rating.value = ''
         this.props.onAddBookmark(data)
       })
@@ -97,12 +98,12 @@ class AddBookmark extends Component {
             />
           </div>
           <div>
-            <label htmlFor='desc'>
+            <label htmlFor='description'>
               Description
             </label>
             <textarea
-              name='desc'
-              id='desc'
+              name='description'
+              id='description'
             />
           </div>
           <div>
