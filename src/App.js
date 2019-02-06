@@ -27,8 +27,6 @@ class App extends Component {
   }
 
   deleteBookmark = bookmarkId => {
-    console.log(bookmarkId)
-    // todo: remove bookmark with bookmarkId from state
     const newBookmarks = this.state.bookmarks.filter(bm =>
       bm.id !== bookmarkId
     )
@@ -47,12 +45,15 @@ class App extends Component {
     })
       .then(res => {
         if (!res.ok) {
-          throw new Error(res.status)
+          return res.json().then(error => Promise.reject(error))
         }
         return res.json()
       })
       .then(this.setBookmarks)
-      .catch(error => this.setState({ error }))
+      .catch(error => {
+        console.error(error)
+        this.setState({ error })
+      })
   }
 
   render() {
