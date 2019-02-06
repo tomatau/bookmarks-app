@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import React from 'react';
 import Rating from '../Rating/Rating';
 import BookmarksContext from '../BookmarksContext';
@@ -23,7 +24,6 @@ function deleteBookmarkRequest(bookmarkId, cb) {
       return res.json()
     })
     .then(data => {
-      console.log({ data })
       cb(bookmarkId)
     })
     .catch(error => {
@@ -51,8 +51,11 @@ export default function BookmarkItem(props) {
             {props.description}
           </p>
           <div className='BookmarkItem__buttons'>
+            <Link to={`/edit/${props.id}`}>
+              Edit
+            </Link>
+            {' '}
             <button
-              className='BookmarkItem__description'
               onClick={() => {
                 deleteBookmarkRequest(
                   props.id,

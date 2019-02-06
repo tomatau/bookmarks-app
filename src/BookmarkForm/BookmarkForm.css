@@ -1,9 +1,9 @@
-.AddBookmark__form {
+.BookmarkForm__form {
   text-align: left;
 }
 
-.AddBookmark__form input,
-.AddBookmark__form textarea {
+.BookmarkForm__form input,
+.BookmarkForm__form textarea {
   display: block;
   text-align: left;
   margin-top: 5px;
@@ -14,19 +14,19 @@
   border: 1px solid #ddd;
 }
 
-.AddBookmark__form label {
+.BookmarkForm__form label {
   margin-top: 10px;
 }
 
-.AddBookmark__buttons {
+.BookmarkForm__buttons {
   text-align: center;
 }
 
-.AddBookmark__required {
+.BookmarkForm__required {
   color: #a51414;
 }
 
-.AddBookmark__error p {
+.BookmarkForm__error p {
   color: #a51414;
   margin-bottom: 5px;
 }
