@@ -17,9 +17,9 @@ function deleteBookmarkRequest(bookmarkId, cb) {
       if (!res.ok) {
         return res.json().then(error => Promise.reject(error))
       }
-      return res.json()
+      // no content on success, so skip res.json()
     })
-    .then(data => {
+    .then(() => {
       cb(bookmarkId)
     })
     .catch(error => {
@@ -70,7 +70,10 @@ BookmarkItem.defaultProps = {
 }
 
 BookmarkItem.propTypes = {
-  id: PropTypes.string.isRequired,
+  id: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string,
+  ]).isRequired,
   title: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   desciption: PropTypes.string,
